@@ -1,0 +1,34 @@
+{
+  "name": "home-spark",
+  "version": "0.1.0",
+  "description": "A smart cube that displays your notifications in the most suitable ways everywhere in your home.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "gulp start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spark-343/home-spark.git"
+  },
+  "author": "Thibault Friedrich <tf@elqui.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spark-343/home-spark/issues"
+  },
+  "homepage": "https://github.com/spark-343/home-spark#readme",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.5.4",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-watch": "^4.3.9",
+    "nodemon": "^1.10.2"
+  }
+}
