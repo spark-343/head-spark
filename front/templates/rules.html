@@ -1,0 +1,92 @@
+{% include 'layout.html' %}
+
+{% block body %}
+<!-- <div class="ui massive top fixed menu">
+
+<a class="item">Rules</a>
+<a class="item">Services</a>
+</div> -->
+<div class="main">
+
+    <div class="ui secondary large pointing menu">
+        <div class="header item">
+            <!-- <img src="img/home.png"> -->
+            #Spark-12
+        </div>
+
+        <div class="right menu">
+            <a class="item">
+                Rules
+            </a>
+            <a class="item">
+                Browse
+            </a>
+            <div class="ui right dropdown item">
+                Account
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item">Create rule</div>
+                  <div class="item">Logout</div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="content">
+
+            <div class="rule-maker">
+                <div class="rule-maker-when">
+                    <div class="rule-maker-when-label"><span class="rule-maker-when-title">When</span> I should receive</div>
+                    <div class="rule-maker-when-choice">
+                        <div class="ui selection dropdown huge">
+                            <input type="hidden" name="gender">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">A mail ?</div>
+                            <div class="menu">
+                                <div class="item" data-value="1">Male</div>
+                                <div class="item" data-value="0">Female</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-maker-then">
+                    <div class="rule-maker-then-label"><span class="rule-maker-then-title">Then</span> please notify me with</div>
+                    <div class="rule-maker-then-choice">
+                        <div class="ui selection dropdown huge">
+                            <input type="hidden" name="gender">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">A smooth light</div>
+                            <div class="menu">
+                                <div class="item" data-value="1">Male</div>
+                                <div class="item" data-value="0">Female</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- <div ng-app="homeSpark" ng-view>
+Toto
+</div> -->
+{% endblock body %}
+
+{% block scripts %}
+<!--
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script> -->

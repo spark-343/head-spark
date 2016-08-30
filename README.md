@@ -17,6 +17,9 @@ For development raspberry pi can be replaced by a computer.
 
 ```javascript
 
+npm install
 
+// for a full livereload
+npm start
 
 ```
