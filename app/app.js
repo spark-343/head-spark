@@ -31,7 +31,10 @@ app
 .set('view engine', 'html')
 .set('views', __dirname+'/../front/templates')
 .get('/', function (req, res) {
-    res.render('rules.html', {title: 'Rules'});
+    res.render('create-notification.html', {title: 'Rules'});
+})
+.get('/services', function (req, res) {
+    res.render('services.html', {title: 'Services'});
 })
 .use(express.static(__dirname+'/../front/static'));
 

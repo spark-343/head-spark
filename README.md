@@ -12,8 +12,14 @@ Maybe only arduino will be necessary if all the computing is transfered online.
 
 For development raspberry pi can be replaced by a computer.
 
-## Getting started
+## Setup the Apis
 
+* create the file .env
+* add your api keys in the file .env
+
+See more on the file .env_example
+
+### Start the application
 
 ```javascript
 

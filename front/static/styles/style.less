@@ -6,29 +6,57 @@
     max-width: @maxWidth;
     margin: auto;
     padding-top: 20px;
-    text-align: center;
+    // text-align: center;
 }
 
 .content {
-    padding-top: 20px;
+    // padding-top: 20px;
 }
 
 
 .rule-maker {
 
-    
+    &-title {
+        font-size: 1.5em;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+
+    max-width: 600px;
+    margin: auto;
     text-align: left;
+
+    &-when, &-then {
+        // display: inline-block;
+    }
+
     &-when-label, &-then-label {
-        font-size: 1.4em;
+        font-size: 1.2em;
+        // display: inline-block;
+    }
+
+    &-when-label {
+        padding-bottom: 20px;
+    }
+
+    &-then-label {
          padding: 20px 0px;
     }
 
     &-when-title, &-then-title {
-        font-size: 1.5em;
+        // font-size: 1.5em;
         font-weight: bold;
     }
 
     &-when-choice, &-then-choice {
-        padding-left: 10px;
+        padding-left: 30px;
+        // display: inline-block;
+    }
+
+    &-buttons {
+        padding-top: 20px;
+        text-align: right;
     }
 }
+
+@import "services.less";
