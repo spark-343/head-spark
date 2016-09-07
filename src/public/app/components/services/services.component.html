@@ -1,0 +1,30 @@
+<!-- <div class="ui icon message">
+  <i class="inbox icon"></i>
+  <div class="content">
+    <div class="header">
+      Have you heard about our mailing list?
+    </div>
+    <p>Get the best news in your e-mail every day.</p>
+  </div>
+</div> -->
+<div class="service-list">
+
+    <div class="service" *ngFor='let service of services.list()'>
+        <div class="ui segment">
+            <!-- <div class="service-action">
+                <button class="ui button primary">Add</button>
+            </div> -->
+
+            <div class="service-logo">
+                <i class="ui icon {{service.icon}} big"></i>
+            </div>
+
+            <div class="service-content">
+                <div class="service-title">{{service.name}}</div>
+                <div class="service-description">
+                    {{service.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

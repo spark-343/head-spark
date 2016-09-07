@@ -1,6 +1,15 @@
 
-@maxWidth: 960px;
+@maxWidth: 760px;
 
+@blue: #2185D0;
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
 
 .main {
     max-width: @maxWidth;
@@ -9,8 +18,41 @@
     // text-align: center;
 }
 
+.ui.icon.zmdi {
+    font-family: 'Material-Design-Iconic-Font'!important;
+}
+
+
+h1.header {
+    // margin: 0 0 -2px!important;
+    // padding: .85714286em 1.14285714em!important;
+    //margin: 0!important;
+    // padding: 0!important;
+}
+
 .content {
     // padding-top: 20px;
+}
+
+.welcome {
+    height: 100%;
+    background: url('../img/thecube.jpg');
+    background-size: cover;
+    text-align: center;
+
+    &-invisible {
+        display: inline-block;
+        height: 100%;
+        width: 1px;
+        vertical-align: middle;
+    }
+
+    &-button {
+        display: inline-block;
+        width: 400px;
+        text-align: center;
+        vertical-align: middle;
+    }
 }
 
 
@@ -58,5 +100,3 @@
         text-align: right;
     }
 }
-
-@import "services.less";

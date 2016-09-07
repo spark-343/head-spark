@@ -19,13 +19,36 @@ For development raspberry pi can be replaced by a computer.
 
 See more on the file .env_example
 
-### Start the application
+## Development
 
 ```javascript
 
 npm install
 
-// for a full livereload
-npm start
+// to generate css styles
+npm run less
+
+// to generate js from ts
+npm run typescript
+
+// to clean the temporary files
+npm run clean
 
 ```
+
+To install a dependency:
+
+```javascript
+
+npm install <module> --save
+
+typings install <module> --save --global --source <source> // try without argument source, typins will make you proposition
+```
+
+For client module, add the module to *systemjs.config.js*.
+
+> This project uses [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md). We could also use [Webpack](https://angular.io/docs/ts/latest/guide/webpack.html).
+
+## Theme
+
+We use [semanticUi](http://semantic-ui.com/).

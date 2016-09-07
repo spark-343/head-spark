@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home spark</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" >
+        <link rel='stylesheet' href='/styles/style.min.css' />
+
+        <base href="/">
+
+	</head>
+	<body>
+        <my-app>
+            <div class="ui active dimmer inverted">
+                <div class="ui text loader inverted big blue"></div>
+            </div>
+        </my-app>
+    </body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js" ></script>
+      <!-- 1. Load libraries -->
+       <!-- Polyfill(s) for older browsers -->
+      <script src="/node_modules/core-js/client/shim.min.js"></script>
+      <script src="/node_modules/zone.js/dist/zone.js"></script>
+      <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+      <script src="/node_modules/systemjs/dist/system.src.js"></script>
+      <!-- 2. Configure SystemJS -->
+      <script src="/systemjs.config.js"></script>
+      <script>
+        System.import('app').catch(function(err){ console.error(err); });
+      </script>
+
+
+
+</html>

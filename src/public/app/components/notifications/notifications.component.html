@@ -1,0 +1,20 @@
+<div class="notification-add" *ngIf="!hideButtonAddNotification()" >
+    <button class="ui primary button" (click)="toggleAddNotification()">
+      Add new notification
+    </button>
+</div>
+
+<div class="notification-new" *ngIf="hideButtonAddNotification()" >
+    <div class="notification-new-name">
+        <input class="notification-new-name-input" [(value)]="notificationName" placeholder="Name">
+        <div class="notification-new-name-help">Ex: "recall birthdays"</div>
+    </div>
+    <div class="notification-new-buttons">
+        <button class="ui button" (click)="toggleAddNotification()">
+            Cancel
+        </button>
+        <button class="ui primary button" (click)="toggleAddNotification()">
+          Save
+        </button>
+    </div>
+</div>

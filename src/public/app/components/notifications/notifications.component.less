@@ -1,0 +1,30 @@
+@grey: rgba(0, 0, 0, 0.4);
+
+.notification {
+    &-add {
+        text-align: right;
+    }
+
+    &-new {
+        &-name {
+
+
+            &-input {
+                margin-bottom: 5px;
+                width: 500px;
+                border: none;
+                font-size: 1.3em;
+                outline: none;
+            }
+
+            &-help {
+                font-style: italic;
+                color: @grey;
+            }
+        }
+
+        &-buttons {
+            text-align: right;
+        }
+    }
+}
