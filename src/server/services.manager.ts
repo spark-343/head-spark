@@ -22,6 +22,7 @@ export class ServicesManager {
                 id: 'slack',
                 icon: 'slack',
                 name: 'Slack',
+                notification: 'a slack message',
                 description: 'Get notifications for channel messages and private messages'
             });
         }
@@ -31,6 +32,7 @@ export class ServicesManager {
                 id: 'email',
                 icon: 'mail',
                 name: 'Email',
+                notification: 'an email',
                 description: 'Get notifications for mail you receive'
             });
         }

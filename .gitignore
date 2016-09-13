@@ -1,4 +1,4 @@
 node_modules/*
 src/api/**/*.js
 src/public/**/*.css
-src/public/app/*.js
+src/public/app/**/*.js

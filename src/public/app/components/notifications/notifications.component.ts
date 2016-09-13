@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+
+import { ServicesService } from "../../services/services.service";
+
+
 @Component({
   selector: 'notifications',
   templateUrl: 'components/notifications/notifications.component.html',
@@ -6,22 +10,32 @@ import { Component } from '@angular/core';
 })
 export class NotificationsComponent {
 
-    public addNotification: Boolean;
+    public formDisplayed: Boolean;
     notificationName: String;
+    notificationNameInputFocused: Boolean;
+    input: String;
+    private services: ServicesService;
 
-    constructor() {
-        this.addNotification = false;
+    ifCondition: String;
+    ifConditionDisplayed: Boolean;
+
+
+    constructor(private servicesService: ServicesService) {
+        this.services = servicesService;
+        this.formDisplayed = false;
         this.notificationName = '';
+        this.input = '';
     }
 
 
     toggleAddNotification () {
-        console.log('toggle');
-        this.addNotification = ! this.addNotification;
+        console.log('toggle', this.notificationName);
+        this.formDisplayed = ! this.formDisplayed;
     }
 
-    hideButtonAddNotification () {
-        return this.addNotification;
+    cancelAddNotification () {
+        this.formDisplayed = false;
+        this.notificationName = '';
     }
 
 }

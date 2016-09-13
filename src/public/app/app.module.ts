@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
 
@@ -10,6 +11,9 @@ import { NotificationsComponent }  from './components/notifications/notification
 
 // import { ServicesComponent, NotificationsComponent }  from './components';
 
+import { FocusDirective } from './directives/focus.directive';
+import { DropdownDirective } from './directives/dropdown.directive';
+
 
 import { SocketService } from "./services/socket.service";
 import { ServicesService } from "./services/services.service";
@@ -17,8 +21,8 @@ import { ServicesService } from "./services/services.service";
 
 
 @NgModule({
-  imports:      [ BrowserModule, routing ],
-  declarations: [ AppComponent, ServicesComponent, NotificationsComponent ],
+  imports:      [ BrowserModule, FormsModule, routing ],
+  declarations: [ AppComponent, ServicesComponent, NotificationsComponent, FocusDirective, DropdownDirective ],
   bootstrap:    [ AppComponent ],
   providers:    [ SocketService, ServicesService ]
 })
