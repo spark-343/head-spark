@@ -24,8 +24,17 @@
                 </div>
             </div>
             <div class="notification-new-if-condition">
-                <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
-                <input *ngIf="ifConditionDisplayed" type="text" class="notification-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
+                <div *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true" class="notification-new-if-condition-add">
+                    <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
+                </div>
+                <div *ngIf="ifConditionDisplayed" class="notification-new-if-condition-form">
+                    <span (click)="cancelAddConditionIfNotification()" class="notification-new-if-condition-close"><i class="ui icon zmdi zmdi-close"></i></span>
+
+                    <textarea class="notification-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
+
+                    </textarea>
+                    <!-- <input type="text" > -->
+                </div>
             </div>
         </div>
         <!-- <div class="notification-new-if-help"> -->

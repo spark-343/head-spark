@@ -38,4 +38,8 @@ export class NotificationsComponent {
         this.notificationName = '';
     }
 
+    cancelAddConditionIfNotification () {
+        this.ifConditionDisplayed = false;
+    }
+
 }
