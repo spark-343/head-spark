@@ -13,7 +13,8 @@
                 margin-bottom: 5px;
                 width: 500px;
                 border: none;
-                font-size: 1.3em;
+                font-size: 1.6em;
+                font-weight: bold;
                 outline: none;
             }
 
@@ -26,7 +27,7 @@
 
         &-if {
             font-size: 1.3em;
-            margin-top: 15px;
+            margin-top: 7px;
 
             &-input {
                 margin-bottom: 10px;
@@ -34,10 +35,10 @@
             &-condition {
                 // display: inline-block;
                 // padding-left: 10px;
-                color: @grey;
                 margin-top: 10px;
 
                 &-add {
+                    color: @grey;
                     font-size: 0.8em;
                     cursor: pointer;
                     &:hover {
@@ -59,12 +60,14 @@
                     resize: none;
                     // font-size: 1.3em;
                     outline: none;
+                    padding-right: 30px;
                 }
 
                 &-close {
                     // position: relative;
                     // top: 0px;
                     // right: 20px;
+                    display: block;
                     cursor: pointer;
                     font-size: 1.1em;
                     float: right;
@@ -72,6 +75,11 @@
 
                     &:hover {
                         color: black;
+                    }
+
+                    &-container {
+                        height: 0px;
+                        width: 0px;
                     }
                 }
             }
