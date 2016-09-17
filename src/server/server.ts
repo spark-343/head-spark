@@ -7,6 +7,7 @@ import * as socketIo from "socket.io";
 /*import * as mongoose from "mongoose";
 import { RoomSocket } from "./room-socket"; */
 import {ServicesManager} from "./services.manager";
+import {NotificationsManager} from "./notifications.manager";
 
 
 declare var process, __dirname;
@@ -25,6 +26,7 @@ class Server {
     private port: number;
 
     private servicesManager: any;
+    private notificationsManager: any;
 
     /**
     * Bootstrap the application.
@@ -47,7 +49,8 @@ class Server {
     constructor() {
         // instanciate servicesManager
         this.servicesManager = new ServicesManager();
-        console.log(this.servicesManager);
+        //console.log(this.servicesManager);
+        this.notificationsManager = new NotificationsManager();
 
         // Create expressjs application
         this.app = express();
@@ -157,6 +160,12 @@ class Server {
                 var services = thiis.servicesManager.currentServices();
                 // console.log(services);
                 socket.emit('services', services);
+            });
+            socket.on('get-notifications', function () {
+                console.log('get-notifications');
+                var notifications = thiis.notificationsManager.currentNotifications();
+                // console.log(services);
+                socket.emit('notifications', notifications);
             });
         });
         // let roomSocket = new RoomSocket(this.io);

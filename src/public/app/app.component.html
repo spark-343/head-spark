@@ -1,5 +1,15 @@
 <div class="main">
 
+
+    <input type="text">
+
+    <div class="browser-notification" [ngClass]="{'browser-notification-active':browserNotification.currentNotification().show}">
+        <div class="ui visible message black">
+            <p>{{browserNotification.currentNotification().message}}</p>
+        </div>
+
+    </div>
+
     <div class="ui secondary large top menu">
         <div class="header item">
             <!-- <img src="img/home.png"> -->
@@ -7,13 +17,17 @@
         </div>
 
         <div class="right menu">
+            <a class="item" routerLink="/rules" routerLinkActive="active">
+                <!-- <i class="ui icon zmdi zmdi-notifications"></i> -->
+                Rules
+            </a>
             <a class="item" routerLink="/notifications" routerLinkActive="active">
                 <!-- <i class="ui icon zmdi zmdi-notifications"></i> -->
-                Notifications
+                Spark notifications
             </a>
             <a class="item" routerLink="/services" routerLinkActive="active">
                 <!-- <i class="ui icon user"></i> -->
-                Services
+                Extern services
             </a>
             <!-- <a class="item">
                 My notifications

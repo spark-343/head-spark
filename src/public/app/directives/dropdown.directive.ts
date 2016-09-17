@@ -14,7 +14,7 @@ export class DropdownDirective implements OnInit {
     elementRef: ElementRef;
 
 
-    @Input('dropdown') options: string;
+    @Input('transition') options: string;
 
     constructor(private element: ElementRef) {
         this.elementRef = element;
@@ -22,7 +22,7 @@ export class DropdownDirective implements OnInit {
     }
 
     ngOnInit(): void {
-        jQuery(this.elementRef.nativeElement).dropdown(JSON.stringify(this.options));
+        jQuery(this.elementRef.nativeElement).dropdown();
         //$('.ui.dropdown').dropdown();
     }
 }

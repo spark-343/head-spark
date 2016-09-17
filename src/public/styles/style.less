@@ -22,20 +22,67 @@ body {
     font-family: 'Material-Design-Iconic-Font'!important;
 }
 
-
-h1.header {
-    // margin: 0 0 -2px!important;
-    // padding: .85714286em 1.14285714em!important;
-    //margin: 0!important;
-    // padding: 0!important;
-}
-
-.content {
-    // padding-top: 20px;
-}
-
 .loader.blue {
     &:after {
         border-color: @blue transparent transparent !important ;
+    }
+}
+
+.titem {
+    min-height: 36px;
+
+    &-action {
+        float: right;
+    }
+
+    &-logo {
+        display: inline-block;
+        // width: 65px;
+        text-align: left;
+        font-size: 1.3em;
+        vertical-align: top;
+        width: 46.5px;
+        // color: @blue;
+
+        &-img {
+            height: 36px;
+        }
+    }
+
+    &-content {
+        display: inline-block;
+        padding-right: 100px;
+        vertical-align: top;
+
+    }
+
+    &-title {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    &-description {
+
+    }
+
+    & + & {
+        margin-top: 20px;
+    }
+}
+
+.browser-notification {
+    position: fixed;
+    top: 10px;
+    left: -400px;
+    width: 300px;
+    z-index: 1000;
+
+    transition: 0.2s linear left;
+    -o-transition: 0.2s linear left;
+    -webkit-transition: 0.2s linear left;
+    -moz-transition: 0.2s linear left;
+
+    &-active {
+        left: 10px;
     }
 }

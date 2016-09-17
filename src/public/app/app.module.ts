@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import { AppComponent }  from './app.component';
 import { ServicesComponent }  from './components/services/services.component';
 import { NotificationsComponent }  from './components/notifications/notifications.component';
+import { RulesComponent }  from './components/rules/rules.component';
 
 // import { ServicesComponent, NotificationsComponent }  from './components';
 
@@ -17,13 +18,15 @@ import { DropdownDirective } from './directives/dropdown.directive';
 
 import { SocketService } from "./services/socket.service";
 import { ServicesService } from "./services/services.service";
+import { NotificationsService } from "./services/notifications.service";
+import { BrowserNotificationService } from "./services/browser-notification.service";
 
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing ],
-  declarations: [ AppComponent, ServicesComponent, NotificationsComponent, FocusDirective, DropdownDirective ],
+  declarations: [ AppComponent, ServicesComponent, NotificationsComponent, FocusDirective, DropdownDirective, RulesComponent ],
   bootstrap:    [ AppComponent ],
-  providers:    [ SocketService, ServicesService ]
+  providers:    [ SocketService, ServicesService, NotificationsService, BrowserNotificationService ]
 })
 export class AppModule { }

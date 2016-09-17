@@ -1,0 +1,100 @@
+<div class="rule-add" *ngIf="!formDisplayed" >
+    <button class="ui primary button" (click)="toggleAddRule()">
+      Add new rule
+    </button>
+</div>
+
+<div class="rule-new" *ngIf="formDisplayed" >
+    <div class="rule-new-name">
+        <input type="text" class="rule-new-name-input" [focus]="formDisplayed" [(ngModel)]="ruleName" placeholder="Rule name">
+        <!-- <div class="rule-new-name-help">
+            <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
+            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span>
+        </div> -->
+        <!-- {{ruleName}} -->
+    </div>
+    <div class="rule-new-if">
+        <div class="rule-new-if-input">
+            <strong>If</strong> I receive
+            <div class="ui dropdown scrolling" dropdown>
+                <div class="text">...</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" *ngFor='let service of services.list()'>{{service.notification}}</div>
+                </div>
+
+            </div>
+            <div *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true" class="rule-new-if-condition-add">
+                <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
+            </div>
+            <div class="rule-new-if-condition">
+
+                <div *ngIf="ifConditionDisplayed" class="rule-new-if-condition-form">
+                    <div class="rule-new-if-condition-close-container">
+                        <span (click)="ifConditionDisplayed = false" class="rule-new-if-condition-close">
+                            <i class="ui icon zmdi zmdi-close"></i>
+                        </span>
+                    </div>
+                    <textarea class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
+
+                    </textarea>
+                    <!-- <input type="text" > -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="rule-new-if-help"> -->
+            <!-- <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
+            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span> -->
+        <!-- </div> -->
+        <!-- <div class="rule-new-if-condition">
+            <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
+            <input *ngIf="ifConditionDisplayed" type="text" class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
+        </div> -->
+    </div>
+    <div class="rule-new-then">
+        <div class="rule-new-then-input">
+            <strong>Then</strong> please notify me with
+            <div class="ui dropdown scrolling" dropdown>
+                <div class="text">...</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" *ngFor='let notification of notifications.list()'>{{notification.notification}}</div>
+                </div>
+
+            </div>
+            <div *ngIf="!thenConditionDisplayed" (click)="thenConditionDisplayed=true" class="rule-new-then-condition-add">
+                <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
+            </div>
+            <div class="rule-new-then-condition">
+
+                <div *ngIf="thenConditionDisplayed" class="rule-new-then-condition-form">
+                    <div class="rule-new-then-condition-close-container">
+                        <span (click)="thenConditionDisplayed = false" class="rule-new-then-condition-close">
+                            <i class="ui icon zmdi zmdi-close"></i>
+                        </span>
+                    </div>
+                    <textarea class="rule-new-then-condition-input" [focus]="thenConditionDisplayed" [(ngModel)]="thenCondition" placeholder="Condition">
+
+                    </textarea>
+                    <!-- <input type="text" > -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="rule-new-if-help"> -->
+            <!-- <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
+            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span> -->
+        <!-- </div> -->
+        <!-- <div class="rule-new-if-condition">
+            <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
+            <input *ngIf="ifConditionDisplayed" type="text" class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
+        </div> -->
+    </div>
+    <div class="rule-new-buttons">
+        <button class="ui button" (click)="toggleAddRule()">
+            Cancel
+        </button>
+        <button class="ui primary button" (click)="toggleAddRule()"  [disabled]="ruleName.length < 3">
+          Save
+        </button>
+    </div>
+</div>

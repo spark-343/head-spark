@@ -1,45 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { ServicesService } from "../../services/services.service";
-
+import { NotificationsService } from "../../services/notifications.service";
+import { BrowserNotificationService } from "../../services/browser-notification.service";
 
 @Component({
   selector: 'notifications',
   templateUrl: 'components/notifications/notifications.component.html',
   styleUrls: ['components/notifications/notifications.component.min.css']
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnInit  {
 
-    public formDisplayed: Boolean;
-    notificationName: String;
-    notificationNameInputFocused: Boolean;
-    input: String;
-    private services: ServicesService;
+    private notifications: NotificationsService;
+    private browserNotification: BrowserNotificationService;
 
-    ifCondition: String;
-    ifConditionDisplayed: Boolean;
-
-
-    constructor(private servicesService: ServicesService) {
-        this.services = servicesService;
-        this.formDisplayed = false;
-        this.notificationName = '';
-        this.input = '';
+    constructor(private notificationsService: NotificationsService, private browserNotificationService:BrowserNotificationService ) {
+        this.notifications = notificationsService;
+        this.browserNotification = browserNotificationService;
     }
 
+    ngOnInit(): void {
 
-    toggleAddNotification () {
-        console.log('toggle', this.notificationName);
-        this.formDisplayed = ! this.formDisplayed;
-    }
-
-    cancelAddNotification () {
-        this.formDisplayed = false;
-        this.notificationName = '';
-    }
-
-    cancelAddConditionIfNotification () {
-        this.ifConditionDisplayed = false;
     }
 
 }

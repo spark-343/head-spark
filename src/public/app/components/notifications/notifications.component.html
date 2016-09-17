@@ -1,60 +1,21 @@
-<div class="notification-add" *ngIf="!formDisplayed" >
-    <button class="ui primary button" (click)="toggleAddNotification()">
-      Add new notification
-    </button>
-</div>
+<div class="titem-list">
 
-<div class="notification-new" *ngIf="formDisplayed" >
-    <div class="notification-new-name">
-        <input type="text" class="notification-new-name-input" [focus]="formDisplayed" [(ngModel)]="notificationName" placeholder="Rule name">
-        <!-- <div class="notification-new-name-help">
-            <span *ngIf="notificationName.length == 0">Ex: "birthdays reminder"</span>
-            <span *ngIf="notificationName.length < 3 && notificationName.length >0">Don't be lazy, use at least 3 characters</span>
-        </div> -->
-        <!-- {{notificationName}} -->
-    </div>
-    <div class="notification-new-if">
-        <div class="notification-new-if-input">
-            If I receive
-            <div class="ui dropdown scrolling" dropdown>
-                <div class="text">...</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item" *ngFor='let service of services.list()'>{{service.notification}}</div>
-                </div>
+    <div class="titem" *ngFor='let notification of notifications.list()'>
+        <div class="ui segment" (click)="browserNotification.showNotification('Hello world')">
+            <!-- <div class="service-action">
+                <button class="ui button primary">Add</button>
+            </div> -->
+
+            <div class="titem-logo">
+                <i class="ui icon {{notification.icon}} big"></i>
             </div>
-            <div class="notification-new-if-condition">
-                <div *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true" class="notification-new-if-condition-add">
-                    <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
-                </div>
-                <div *ngIf="ifConditionDisplayed" class="notification-new-if-condition-form">
-                    <div class="notification-new-if-condition-close-container">
-                        <span (click)="cancelAddConditionIfNotification()" class="notification-new-if-condition-close">
-                            <i class="ui icon zmdi zmdi-close"></i>
-                        </span>
-                    </div>
-                    <textarea class="notification-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
 
-                    </textarea>
-                    <!-- <input type="text" > -->
+            <div class="titem-content">
+                <div class="titem-title">{{notification.name}}</div>
+                <div class="titem-description">
+                    {{notification.description}}
                 </div>
             </div>
         </div>
-        <!-- <div class="notification-new-if-help"> -->
-            <!-- <span *ngIf="notificationName.length == 0">Ex: "birthdays reminder"</span>
-            <span *ngIf="notificationName.length < 3 && notificationName.length >0">Don't be lazy, use at least 3 characters</span> -->
-        <!-- </div> -->
-        <!-- <div class="notification-new-if-condition">
-            <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
-            <input *ngIf="ifConditionDisplayed" type="text" class="notification-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
-        </div> -->
-    </div>
-    <div class="notification-new-buttons">
-        <button class="ui button" (click)="toggleAddNotification()">
-            Cancel
-        </button>
-        <button class="ui primary button" (click)="toggleAddNotification()"  [disabled]="notificationName.length < 3">
-          Save
-        </button>
     </div>
 </div>
