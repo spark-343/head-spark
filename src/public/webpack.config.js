@@ -3,18 +3,19 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, 'app/main.ts'),
-    vendor: path.join(__dirname, 'vendor.ts')
+    'dist/main': path.join(__dirname, 'app/main.ts'),
+    'dist/vendor': path.join(__dirname, 'vendor.ts')
   },
+  devtool: 'source-map',
   output: {
-    filename: path.join(__dirname, '[name].bundle.js')
+    filename: '[name].bundle.js'
   },
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.less', '.css', '.html'],
     // modulesDirectories: [path.join(__dirname, '../../node_modules')],
     modules: [
-        /*path.join(__dirname, '../../node_modules'),
-        path.join(__dirname, '../../typings')*/
+        path.join(__dirname, '../../node_modules'),
+        path.join(__dirname, '../../typings')
    ]
   },
   module: {

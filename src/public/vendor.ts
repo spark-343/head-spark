@@ -11,12 +11,17 @@ import 'angular2-in-memory-web-api';
 
 import 'socket.io-client';
 
+import 'zone.js';
+import 'reflect-metadata';
+
 // RxJS
 import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 
+
+declare var require: any;
 
 
 import './styles/style.less';

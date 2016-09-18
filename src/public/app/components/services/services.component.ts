@@ -10,8 +10,8 @@ declare var require;
   selector: 'services',
   // styles: [styles],
   // template: template
-  templateUrl: 'components/services/services.component.html',
-  styleUrls: ['components/services/services.component.min.css']
+  template: require('./services.component.html'),
+  styles: [ require('./services.component.less')]
 })
 export class ServicesComponent implements OnInit {
 

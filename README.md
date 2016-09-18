@@ -30,11 +30,14 @@ See more on the file .env_example
 
 npm install
 
-// to generate css styles
+// to generate css general style
 npm run less
 
-// to generate js from ts
+// to generate js from ts for backend
 npm run typescript
+
+// to generate js from ts, css from less for angular
+npm run webpack
 
 // to clean the temporary files
 npm run clean

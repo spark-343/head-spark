@@ -11,7 +11,8 @@
     "less": "gulp less",
     "typescript": "gulp typescript",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "webpack": "cd src/public && webpack --config webpack.config.js"
   },
   "babel": {
     "presets": [
@@ -62,7 +63,7 @@
     "socket.io-client": "^1.4.8",
     "swig": "^1.4.2",
     "systemjs": "0.19.27",
-    "typescript": "^2.0.0",
+    "typescript": "^2.0.2",
     "zone.js": "^0.6.17"
   },
   "devDependencies": {
@@ -85,7 +86,6 @@
     "nodemon": "^1.10.2",
     "raw-loader": "^0.5.1",
     "ts-loader": "^0.8.2",
-    "typescript": "^2.0.2",
     "typings": "^1.3.2",
     "webpack": "^2.1.0-beta.22"
   }
