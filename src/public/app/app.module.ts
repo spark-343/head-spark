@@ -9,6 +9,8 @@ import { AppComponent }  from './app.component';
 import { ServicesComponent }  from './components/services/services.component';
 import { NotificationsComponent }  from './components/notifications/notifications.component';
 import { RulesComponent }  from './components/rules/rules.component';
+import { SignComponent }  from './components/sign/sign.component';
+
 
 // import { ServicesComponent, NotificationsComponent }  from './components';
 
@@ -25,7 +27,14 @@ import { BrowserNotificationService } from "./services/browser-notification.serv
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing ],
-  declarations: [ AppComponent, ServicesComponent, NotificationsComponent, FocusDirective, DropdownDirective, RulesComponent ],
+  declarations: [ AppComponent,
+      ServicesComponent,
+      NotificationsComponent,
+      FocusDirective,
+      DropdownDirective,
+      RulesComponent,
+      SignComponent
+  ],
   bootstrap:    [ AppComponent ],
   providers:    [ SocketService, ServicesService, NotificationsService, BrowserNotificationService ]
 })

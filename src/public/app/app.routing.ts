@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ServicesComponent }  from './components/services/services.component';
 import { NotificationsComponent }  from './components/notifications/notifications.component';
 import { RulesComponent }  from './components/rules/rules.component';
+import { SignComponent }  from './components/sign/sign.component';
 
 const appRoutes: Routes = [
     {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
     {
         path: 'notifications',
         component: NotificationsComponent
+    },
+    {
+        path: 'sign',
+        component: SignComponent
     },
     {
         path: '',
