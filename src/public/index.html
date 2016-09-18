@@ -6,7 +6,7 @@
 		<title>Home spark</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" >
-        <link rel='stylesheet' href='/styles/style.min.css' />
+        <!-- <link rel='stylesheet' href='/styles/style.min.css' /> -->
 
         <base href="/">
 
@@ -22,17 +22,18 @@
       <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js" ></script>
       <!-- 1. Load libraries -->
        <!-- Polyfill(s) for older browsers -->
-      <script src="/node_modules/core-js/client/shim.min.js"></script>
+      <!-- <script src="/node_modules/core-js/client/shim.min.js"></script>
       <script src="/node_modules/zone.js/dist/zone.js"></script>
       <script src="/node_modules/reflect-metadata/Reflect.js"></script>
-      <script src="/node_modules/systemjs/dist/system.src.js"></script>
+      <script src="/node_modules/systemjs/dist/system.src.js"></script> -->
       <!-- 2. Configure SystemJS -->
-      <script src="/systemjs.config.js"></script>
+      <!-- <script src="/systemjs.config.js"></script>
       <script>
         System.import('app').catch(function(err){ console.error(err); });
-        $('.ui.dropdown').dropdown();
-      </script>
+      </script> -->
 
 
+      <script src="vendor.bundle.js"></script>
+      <script src="main.bundle.js"></script>
 
 </html>

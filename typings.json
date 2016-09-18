@@ -1,13 +1,5 @@
 {
   "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
-    "dotenv": "registry:dt/dotenv#2.0.0+20160327131627",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "node": "registry:dt/node#6.0.0+20160831021119",
-    "socket.io": "github:DefinitelyTyped/DefinitelyTyped/socket.io/socket.io.d.ts#4128f7af06c355e3526b7cf7cbb85e2e43bff167",
     "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
-  },
-  "dependencies": {
-    "express": "registry:npm/express#4.14.0+20160815112707"
   }
 }
