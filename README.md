@@ -28,19 +28,19 @@ See more on the file .env_example
 
 ```javascript
 
-npm install
+$ npm install -g vagrant
 
-// to generate css general style
-npm run less
-
-// to generate js from ts for backend (errors will be raised but don't worry)
-npm run typescript
+$ npm install
 
 // to generate js from ts, css from less for angular
-npm run webpack
+$ npm run webpack
+
+$ vagrant up
+
+$ vagrant ssh
 
 // to start the webserver
-npm start
+vagrant$ npm start
 
 // to clean the temporary files
 npm run clean

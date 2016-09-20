@@ -5,3 +5,4 @@ src/public/dist/**/*
 src/server/**/*.js
 typings/*
 .env
+.vagrant

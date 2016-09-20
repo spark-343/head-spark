@@ -93,9 +93,14 @@ gulp.task('start', ['typescript', 'less'], function () {
         ignore: [
             'node_modules/'
         ],
-        env: { 'NODE_ENV': 'development' },
-        stdout: false
-    }).on('readable', function(data) {
+        env: {
+            'NODE_ENV': 'development',
+            'PORT': 80
+        },
+        stdout: true
+    });
+    /*
+    .on('readable', function(data) {
         // waiting for the word 'listening' in the stdout of the app/app.js
         // in order to be sure that the http server is listening for livereload
         // this.stdout.on('data', function(chunk) {
@@ -106,5 +111,5 @@ gulp.task('start', ['typescript', 'less'], function () {
         //     process.stdout.write(chunk);
         // });
         // this.stderr.pipe(process.stderr);
-    });
+    });*/
 });
