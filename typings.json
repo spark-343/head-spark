@@ -1,5 +1,9 @@
 {
   "globalDependencies": {
+    "dotenv": "registry:dt/dotenv#2.0.0+20160327131627",
     "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
+  },
+  "dependencies": {
+    "express": "registry:npm/express#4.14.0+20160911114220"
   }
 }

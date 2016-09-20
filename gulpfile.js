@@ -6,7 +6,8 @@ var watch = require('gulp-watch');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
 var typescript = require('gulp-typescript');
-var tscConfig = require('./tsconfig.json');
+var sourceMaps = require('gulp-sourcemaps');
+// var tscConfig = require('./tsconfig.json');
 var del = require('del');
 
 gulp.task('less', function () {
@@ -23,7 +24,9 @@ gulp.task('less', function () {
 gulp.task('typescript', function () {
   return gulp
     .src('src/server/**/*.ts', {base: 'src/'})
-    .pipe(typescript(tscConfig.compilerOptions))
+    .pipe(sourceMaps.init())
+    .pipe(typescript(require('./src/server/tsconfig.json').compilerOptions))
+    .pipe(sourceMaps.write({includeContent: false, sourceRoot: '.'}))
     .pipe(gulp.dest('src/'))
     // .pipe(livereload());
 });
