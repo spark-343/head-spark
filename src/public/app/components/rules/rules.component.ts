@@ -4,10 +4,13 @@ import { ServicesService } from "../../services/services.service";
 import { NotificationsService } from "../../services/notifications.service";
 
 
+declare var require: any
+
+
 @Component({
   selector: 'rules',
-  templateUrl: 'components/rules/rules.component.html',
-  styleUrls: ['components/rules/rules.component.min.css']
+  template: require('./rules.component.html'),
+  styles: [ require('./rules.component.less')]
 })
 export class RulesComponent {
 

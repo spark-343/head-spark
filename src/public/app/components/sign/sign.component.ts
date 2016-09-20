@@ -8,8 +8,8 @@ declare var require;
   selector: 'sign',
   // styles: [styles],
   // template: template
-  templateUrl: 'components/sign/sign.component.html',
-  styleUrls: ['components/sign/sign.component.min.css']
+  template: require('./sign.component.html'),
+  styles: [ require('./sign.component.less')]
 })
 export class SignComponent implements OnInit {
 

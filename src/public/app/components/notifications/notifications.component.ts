@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationsService } from "../../services/notifications.service";
 import { BrowserNotificationService } from "../../services/browser-notification.service";
 
+declare var require: any
+
 @Component({
   selector: 'notifications',
-  templateUrl: 'components/notifications/notifications.component.html',
-  styleUrls: ['components/notifications/notifications.component.min.css']
+  template: require('./notifications.component.html'),
+  styles: [require('./notifications.component.less')]
 })
 export class NotificationsComponent implements OnInit  {
 

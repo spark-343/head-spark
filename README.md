@@ -30,11 +30,17 @@ See more on the file .env_example
 
 npm install
 
-// to generate css styles
+// to generate css general style
 npm run less
 
-// to generate js from ts
+// to generate js from ts for backend (errors will be raised but don't worry)
 npm run typescript
+
+// to generate js from ts, css from less for angular
+npm run webpack
+
+// to start the webserver
+npm start
 
 // to clean the temporary files
 npm run clean
@@ -49,10 +55,6 @@ npm install <module> --save
 
 typings install <module> --save --global --source <source> // try without argument source, typins will make you proposition
 ```
-
-For client module, add the module to *systemjs.config.js*.
-
-> This project uses [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md). We could also use [Webpack](https://angular.io/docs/ts/latest/guide/webpack.html).
 
 ## Theme
 

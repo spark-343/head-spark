@@ -1,5 +1,7 @@
 node_modules/*
-src/api/**/*.js
 src/public/**/*.css
 src/public/app/**/*.js
+src/public/dist/**/*
+src/server/**/*.js
+typings/*
 .env

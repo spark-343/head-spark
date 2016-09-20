@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
 
-import { AppComponent }  from './app.component';
+import { AppComponent }  from './components/app/app.component';
 import { ServicesComponent }  from './components/services/services.component';
 import { NotificationsComponent }  from './components/notifications/notifications.component';
 import { RulesComponent }  from './components/rules/rules.component';

@@ -6,11 +6,12 @@ var watch = require('gulp-watch');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
 var typescript = require('gulp-typescript');
-var tscConfig = require('./tsconfig.json');
+var sourceMaps = require('gulp-sourcemaps');
+// var tscConfig = require('./tsconfig.json');
 var del = require('del');
 
 gulp.task('less', function () {
-    return gulp.src(['src/public/app/**/*.less', 'src/public/styles/style.less'], {base: 'src/'})
+    return gulp.src(['src/public/styles/style.less'], {base: 'src/'})
     .pipe(less())
     .pipe(rename({
         suffix: '.min'
@@ -22,14 +23,35 @@ gulp.task('less', function () {
 // TypeScript compile
 gulp.task('typescript', function () {
   return gulp
-    .src('src/**/*.ts', {base: 'src/'})
-    .pipe(typescript(tscConfig.compilerOptions))
+    .src('src/server/**/*.ts', {base: 'src/'})
+    .pipe(sourceMaps.init())
+    .pipe(typescript(require('./src/server/tsconfig.json').compilerOptions))
+    .pipe(sourceMaps.write({includeContent: false, sourceRoot: '.'}))
     .pipe(gulp.dest('src/'))
     // .pipe(livereload());
 });
 
-gulp.task('clean', function () {
-    del([ 'src/public/app/**/*.js', 'src/public/app/**/*.js.map', 'src/public/app/**/*.min.css', 'src/server/**/*.js', 'src/server/**/*.js.map', 'src/public/styles/style.min.css' ]);
+// ############################### CLEAN ##################################
+
+gulp.task('clean:public', function () {
+    del([
+        'src/public/app/**/*.js',
+        'src/public/app/**/*.js.map',
+        'src/public/app/**/*.min.css',
+        'src/public/dist',
+        'src/public/styles/style.min.css'
+    ]);
+});
+
+gulp.task('clean:server', function () {
+    del([
+        'src/server/**/*.js',
+        'src/server/**/*.js.map',
+    ]);
+});
+
+gulp.task('clean', ['clean:public', 'clean:server'], function () {
+    return 0;
 });
 
 // http://jpsierens.com/tutorial-livereload-nodemon-gulp/
