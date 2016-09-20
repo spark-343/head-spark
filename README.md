@@ -39,6 +39,8 @@ $ vagrant up
 
 $ vagrant ssh
 
+vagrant$ cd spark
+
 // to start the webserver
 vagrant$ npm start
 
