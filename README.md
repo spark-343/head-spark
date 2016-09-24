@@ -1,10 +1,10 @@
 # home-spark
 
-*Everybody is welcomed for this project.*
+*Everybody is welcome on this project.*
 
 A smart cube that displays your notifications in the most suitable ways everywhere in your home.
 
-For now the cube works only if you are online.
+For now, the cube works only if you are online.
 
 In the final version, **home-spark** will be composed of:
 
@@ -55,7 +55,7 @@ To install a dependency:
 
 npm install <module> --save
 
-typings install <module> --save --global --source <source> // try without argument source, typins will make you proposition
+typings install <module> --save --global --source <source> // try without argument source, typings will make you proposition
 ```
 
 ## Theme
