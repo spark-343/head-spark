@@ -95,7 +95,7 @@ gulp.task('start', ['typescript', 'less'], function () {
         ],
         env: {
             'NODE_ENV': 'development',
-            'PORT': 80
+            'PORT': 8080
         },
         stdout: true
     });
