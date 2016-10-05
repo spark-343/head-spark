@@ -82,7 +82,7 @@ gulp.task('start', ['typescript', 'less'], function () {
 
     // gulp.start(['less', 'typescript']);
 
-    gulp.watch(['src/public/app/**/*.less', 'src/public/styles/style.less'], ['less']);
+    gulp.watch(['src/public/styles/style.less'], ['less']);
 
     //gulp.watch('src/public/app/*.ts', ['typescript']);
 

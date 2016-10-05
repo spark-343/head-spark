@@ -5,96 +5,84 @@
 </div>
 
 <div class="rule-new" *ngIf="formDisplayed" >
-    <div class="rule-new-name">
-        <input type="text" class="rule-new-name-input" [focus]="formDisplayed" [(ngModel)]="ruleName" placeholder="Rule name">
-        <!-- <div class="rule-new-name-help">
-            <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
-            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span>
-        </div> -->
-        <!-- {{ruleName}} -->
+    <div class="ui three top attached steps">
+      <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'integration'}" (click)="createRuleStep = 'integration'">
+        <i class="ui zmdi zmdi-cloud icon"></i>
+        <div class="content">
+          <div class="title">Input</div>
+          <div class="description">Choose an input</div>
+        </div>
+      </div>
+      <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'media', disabled:createRuleMaxStep == 'integration'}" (click)="createRuleStep = 'media'">
+        <i class="ui zmdi zmdi-notifications-active icon"></i>
+        <div class="content">
+          <div class="title">Output</div>
+          <div class="description">Choose an output</div>
+        </div>
+      </div>
+      <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'name', 'disabled': (createRuleMaxStep == 'integration' || createRuleMaxStep == 'media')}" (click)="createRuleStep = 'name'">
+        <i class="ui zmdi zmdi-check icon"></i>
+        <div class="content">
+          <div class="title">Name</div>
+          <div class="description">Find a sexy name</div>
+        </div>
+      </div>
     </div>
-    <div class="rule-new-if">
-        <div class="rule-new-if-input">
-            <strong>If</strong> I receive
-            <div class="ui dropdown scrolling" dropdown>
-                <div class="text">...</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item" *ngFor='let service of services.list()'>{{service.notification}}</div>
-                </div>
-
+    <div class="ui attached segment">
+        <div class="rule-new-step rule-new-step-integration" [hidden]="createRuleStep != 'integration'">
+            <div class="field">
+                <select class="ui dropdown search" dropdown required [(ngModel)]="integration" name="integration">
+                  <option value="">Integration</option>
+                  <option class="item" *ngFor='let service of services.list()' [ngValue]="service">{{service.notification}}</option>
+                </select>
             </div>
-            <div *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true" class="rule-new-if-condition-add">
-                <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
-            </div>
-            <div class="rule-new-if-condition">
-
-                <div *ngIf="ifConditionDisplayed" class="rule-new-if-condition-form">
-                    <div class="rule-new-if-condition-close-container">
-                        <span (click)="ifConditionDisplayed = false" class="rule-new-if-condition-close">
-                            <i class="ui icon zmdi zmdi-close"></i>
-                        </span>
-                    </div>
-                    <textarea class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
-
-                    </textarea>
-                    <!-- <input type="text" > -->
+            <div class="rule-new-step-add-condition" [hidden]="integrationConditionDisplayed" (click)="integrationConditionDisplayed=true">Add condition</div>
+            <div class="rule-new-step-condition">
+                <div class="ui form" [hidden]="!integrationConditionDisplayed">
+                    <div class="field" >
+                       <label>Condition</label>
+                       <textarea rows="2" [(ngModel)]="integrationCondition"></textarea>
+                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="rule-new-if-help"> -->
-            <!-- <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
-            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span> -->
-        <!-- </div> -->
-        <!-- <div class="rule-new-if-condition">
-            <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
-            <input *ngIf="ifConditionDisplayed" type="text" class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
-        </div> -->
-    </div>
-    <div class="rule-new-then">
-        <div class="rule-new-then-input">
-            <strong>Then</strong> please notify me with
-            <div class="ui dropdown scrolling" dropdown>
-                <div class="text">...</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item" *ngFor='let notification of notifications.list()'>{{notification.notification}}</div>
-                </div>
-
+        <div class="rule-new-step rule-new-step-media" [hidden]="createRuleStep != 'media'">
+            <div class="field">
+                <select class="ui dropdown search" dropdown [(ngModel)]="media">
+                  <option value="">Device</option>
+                  <option class="item" *ngFor='let notification of notifications.list()' [ngValue]="notification">{{notification.notification}}</option>
+                </select>
             </div>
-            <div *ngIf="!thenConditionDisplayed" (click)="thenConditionDisplayed=true" class="rule-new-then-condition-add">
-                <i class="ui icon zmdi zmdi-plus-circle"></i> Add a condition
-            </div>
-            <div class="rule-new-then-condition">
-
-                <div *ngIf="thenConditionDisplayed" class="rule-new-then-condition-form">
-                    <div class="rule-new-then-condition-close-container">
-                        <span (click)="thenConditionDisplayed = false" class="rule-new-then-condition-close">
-                            <i class="ui icon zmdi zmdi-close"></i>
-                        </span>
-                    </div>
-                    <textarea class="rule-new-then-condition-input" [focus]="thenConditionDisplayed" [(ngModel)]="thenCondition" placeholder="Condition">
-
-                    </textarea>
-                    <!-- <input type="text" > -->
+            <div class="rule-new-step-add-condition" [hidden]="deviceConditionDisplayed" (click)="deviceConditionDisplayed=true">Add condition</div>
+            <div class="rule-new-step-condition">
+                <div class="ui form" [hidden]="!deviceConditionDisplayed">
+                    <div class="field" >
+                       <label>Condition</label>
+                       <textarea rows="2" [(ngModel)]="deviceCondition"></textarea>
+                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="rule-new-if-help"> -->
-            <!-- <span *ngIf="ruleName.length == 0">Ex: "birthdays reminder"</span>
-            <span *ngIf="ruleName.length < 3 && ruleName.length >0">Don't be lazy, use at least 3 characters</span> -->
-        <!-- </div> -->
-        <!-- <div class="rule-new-if-condition">
-            <span *ngIf="!ifConditionDisplayed" (click)="ifConditionDisplayed=true">Add a condition</span>
-            <input *ngIf="ifConditionDisplayed" type="text" class="rule-new-if-condition-input" [focus]="ifConditionDisplayed" [(ngModel)]="ifCondition" placeholder="Condition">
-        </div> -->
-    </div>
-    <div class="rule-new-buttons">
-        <button class="ui button" (click)="toggleAddRule()">
-            Cancel
-        </button>
-        <button class="ui primary button" (click)="toggleAddRule()"  [disabled]="ruleName.length < 3">
-          Save
-        </button>
+        <div class="rule-new-step rule-new-step-name" [hidden]="createRuleStep != 'name'">
+            <div class="field">
+                <div class="ui input">
+                    <input class="rule-new-step-name-input" type="text" [(ngModel)]="ruleName" placeholder="Ex: major mails warning">
+                </div>
+            </div>
+        </div>
+        <div class="rule-new-buttons">
+            <button class="ui primary button right labeled icon" *ngIf="createRuleStep == 'integration'" [disabled]="integration == null" (click)="nextStep()">
+                <i class="right arrow icon"></i>
+              Next
+            </button>
+            <button class="ui primary button right labeled icon" *ngIf="createRuleStep == 'media'" [disabled]="media == null" (click)="nextStep()">
+                <i class="right arrow icon"></i>
+              Next
+            </button>
+            <button class="ui primary button right labeled icon" *ngIf="createRuleStep == 'name'" [disabled]="ruleName.length < 3">
+                <i class="checkmark icon"></i>
+              Save
+            </button>
+        </div>
     </div>
 </div>

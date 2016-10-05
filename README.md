@@ -60,4 +60,4 @@ typings install <module> --save --global --source <source> // try without argume
 
 ## Theme
 
-We use [semanticUi](http://semantic-ui.com/).
+We use [semanticUi](http://semantic-ui.com/) and [Android icons](http://zavoloklom.github.io/material-design-iconic-font/icons.html).

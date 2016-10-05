@@ -14,18 +14,25 @@ declare var require: any
 })
 export class RulesComponent {
 
+    createRuleStep: String;
+    createRuleMaxStep: String;
+
     public formDisplayed: Boolean;
+
+    integration: any;
+    media: any;
+
     ruleName: String;
     ruleNameInputFocused: Boolean;
-    input: String;
+
     private services: ServicesService;
     private notifications: NotificationsService;
 
-    ifCondition: String;
-    ifConditionDisplayed: Boolean;
+    integrationCondition: String;
+    integrationConditionDisplayed: Boolean;
 
-    thenCondition: String;
-    thenConditionDisplayed: Boolean;
+    deviceCondition: String;
+    deviceConditionDisplayed: Boolean;
 
 
     constructor(private servicesService: ServicesService, private notificationsService: NotificationsService) {
@@ -33,7 +40,35 @@ export class RulesComponent {
         this.notifications = notificationsService;
         this.formDisplayed = false;
         this.ruleName = '';
-        this.input = '';
+        this.integration = null;
+        this.media = null;
+
+        this.createRuleStep = 'integration';
+        this.createRuleMaxStep = 'integration';
+
+        this.integrationCondition = '';
+        this.integrationConditionDisplayed = false;
+
+        this.deviceCondition = '';
+        this.deviceConditionDisplayed = false;
+    }
+
+    nextStep () {
+        if (this.createRuleStep == 'integration') {
+            this.createRuleStep = 'media';
+            if (this.createRuleMaxStep == 'integration') {
+                this.createRuleMaxStep = 'media';
+            }
+        } else if (this.createRuleStep == 'media') {
+            this.createRuleStep = 'name';
+            if (this.createRuleMaxStep == 'media') {
+                this.createRuleMaxStep = 'name';
+            }
+        }
+    }
+
+    gotoStep (step) {
+
     }
 
 

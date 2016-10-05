@@ -12,7 +12,8 @@
     "typescript": "gulp typescript",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "webpack": "cd src/public && webpack --config webpack.config.js"
+    "webpack": "cd src/public && webpack --config webpack.config.js",
+    "webpack:w": "cd src/public && webpack -w --config webpack.config.js"
   },
   "babel": {
     "presets": [
