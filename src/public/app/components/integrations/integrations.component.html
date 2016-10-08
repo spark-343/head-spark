@@ -9,20 +9,20 @@
 </div> -->
 <div class="titem-list">
 
-    <div class="titem" *ngFor='let service of services.list()'>
+    <div class="titem" *ngFor='let integration of integrations.list()'>
         <div class="ui segment">
             <!-- <div class="service-action">
                 <button class="ui button primary">Add</button>
             </div> -->
 
             <div class="titem-logo">
-                <i class="ui icon {{service.icon}} big"></i>
+                <i class="ui icon {{integration.icon}} big"></i>
             </div>
 
             <div class="titem-content">
-                <div class="titem-title">{{service.name}}</div>
+                <div class="titem-title">{{integration.name}}</div>
                 <div class="titem-description">
-                    {{service.description}}
+                    {{integration.description}}
                 </div>
             </div>
         </div>

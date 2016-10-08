@@ -1,2 +1,2 @@
-export * from "./notifications";
-export * from "./services";
+export * from "./devices";
+export * from "./integrations";

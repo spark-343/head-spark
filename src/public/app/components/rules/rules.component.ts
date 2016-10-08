@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ServicesService } from "../../services/services.service";
+import { IntegrationsService } from "../../services/integrations.service";
 import { NotificationsService } from "../../services/notifications.service";
 
 
@@ -25,7 +25,7 @@ export class RulesComponent {
     ruleName: String;
     ruleNameInputFocused: Boolean;
 
-    private services: ServicesService;
+    private integrations: IntegrationsService;
     private notifications: NotificationsService;
 
     integrationCondition: String;
@@ -35,8 +35,8 @@ export class RulesComponent {
     deviceConditionDisplayed: Boolean;
 
 
-    constructor(private servicesService: ServicesService, private notificationsService: NotificationsService) {
-        this.services = servicesService;
+    constructor(private integrationsService: IntegrationsService, private notificationsService: NotificationsService) {
+        this.integrations = integrationsService;
         this.notifications = notificationsService;
         this.formDisplayed = false;
         this.ruleName = '';

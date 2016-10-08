@@ -1,4 +1,4 @@
-import {IService} from "../public/app/models/service.model";
+import {IIntegration} from "../public/app/models/integration.model";
 import * as dotenv from "dotenv";
 
 
@@ -9,16 +9,16 @@ declare var process, __dirname;
  *
  * @class Server
  */
-export class ServicesManager {
+export class IntegrationsManager {
 
     public constructor() {
     }
 
-    public currentServices(): Array<IService> {
-        var services = [];
+    public currentServices(): Array<IIntegration> {
+        var integrations = [];
         if (process.env.SLACK_API_TOKEN) {
             console.log('in slack', process, process.env.SLACK_API_TOKEN);
-            services.push({
+            integrations.push({
                 id: 'slack',
                 icon: 'slack',
                 name: 'Slack',
@@ -28,7 +28,7 @@ export class ServicesManager {
         }
 
         if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD && process.env.EMAIL_HOST) {
-            services.push({
+            integrations.push({
                 id: 'email',
                 icon: 'mail',
                 name: 'Email',
@@ -37,7 +37,7 @@ export class ServicesManager {
             });
         }
 
-        return services;
+        return integrations;
     }
 
 }

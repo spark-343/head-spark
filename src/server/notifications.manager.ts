@@ -1,4 +1,4 @@
-import {INotification} from "../public/app/models/notification.model";
+import {IIntegration} from "../public/app/models/integration.model";
 import * as dotenv from "dotenv";
 
 
@@ -14,7 +14,7 @@ export class NotificationsManager {
     public constructor() {
     }
 
-    public currentNotifications(): Array<INotification> {
+    public currentNotifications(): Array<IIntegration> {
         var notifications = [];
 
         notifications.push({

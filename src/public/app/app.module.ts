@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 
 import { AppComponent }  from './components/app/app.component';
-import { ServicesComponent }  from './components/services/services.component';
-import { NotificationsComponent }  from './components/notifications/notifications.component';
+import { IntegrationsComponent }  from './components/integrations/integrations.component';
+import { DevicesComponent }  from './components/devices/devices.component';
 import { RulesComponent }  from './components/rules/rules.component';
 import { SignComponent }  from './components/sign/sign.component';
 
@@ -19,7 +19,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
 
 
 import { SocketService } from "./services/socket.service";
-import { ServicesService } from "./services/services.service";
+import { IntegrationsService } from "./services/integrations.service";
 import { NotificationsService } from "./services/notifications.service";
 import { BrowserNotificationService } from "./services/browser-notification.service";
 
@@ -28,14 +28,14 @@ import { BrowserNotificationService } from "./services/browser-notification.serv
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing ],
   declarations: [ AppComponent,
-      ServicesComponent,
-      NotificationsComponent,
+      IntegrationsComponent,
+      DevicesComponent,
       FocusDirective,
       DropdownDirective,
       RulesComponent,
       SignComponent
   ],
   bootstrap:    [ AppComponent ],
-  providers:    [ SocketService, ServicesService, NotificationsService, BrowserNotificationService ]
+  providers:    [ SocketService, IntegrationsService, NotificationsService, BrowserNotificationService ]
 })
 export class AppModule { }

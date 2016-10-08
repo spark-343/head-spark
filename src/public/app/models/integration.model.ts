@@ -1,7 +1,7 @@
 // import * as mongoose from "mongoose";
 
 
-export interface IService {
+export interface IIntegration {
     icon: string;
     id: string;
     name: string;

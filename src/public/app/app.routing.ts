@@ -1,23 +1,23 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ServicesComponent }  from './components/services/services.component';
-import { NotificationsComponent }  from './components/notifications/notifications.component';
+import { IntegrationsComponent }  from './components/integrations/integrations.component';
+import { DevicesComponent }  from './components/devices/devices.component';
 import { RulesComponent }  from './components/rules/rules.component';
 import { SignComponent }  from './components/sign/sign.component';
 
 const appRoutes: Routes = [
     {
-        path: 'services',
-        component: ServicesComponent
+        path: 'integrations',
+        component: IntegrationsComponent
     },
     {
         path: 'rules',
         component: RulesComponent
     },
     {
-        path: 'notifications',
-        component: NotificationsComponent
+        path: 'devices',
+        component: DevicesComponent
     },
     {
         path: 'sign',
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/notifications',
+        redirectTo: '/devices',
         pathMatch: 'full'
     }
 ];

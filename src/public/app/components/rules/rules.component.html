@@ -9,15 +9,15 @@
       <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'integration'}" (click)="createRuleStep = 'integration'">
         <i class="ui zmdi zmdi-cloud icon"></i>
         <div class="content">
-          <div class="title">Input</div>
-          <div class="description">Choose an input</div>
+          <div class="title">Integration</div>
+          <div class="description">Choose an integration</div>
         </div>
       </div>
       <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'media', disabled:createRuleMaxStep == 'integration'}" (click)="createRuleStep = 'media'">
         <i class="ui zmdi zmdi-notifications-active icon"></i>
         <div class="content">
-          <div class="title">Output</div>
-          <div class="description">Choose an output</div>
+          <div class="title">Device</div>
+          <div class="description">Choose an device</div>
         </div>
       </div>
       <div class="step rule-new-step-header" [ngClass]="{'active': createRuleStep == 'name', 'disabled': (createRuleMaxStep == 'integration' || createRuleMaxStep == 'media')}" (click)="createRuleStep = 'name'">
@@ -33,7 +33,7 @@
             <div class="field">
                 <select class="ui dropdown search" dropdown required [(ngModel)]="integration" name="integration">
                   <option value="">Integration</option>
-                  <option class="item" *ngFor='let service of services.list()' [ngValue]="service">{{service.notification}}</option>
+                  <option class="item" *ngFor='let integration of integrations.list()' [ngValue]="service">{{integration.notification}}</option>
                 </select>
             </div>
             <div class="rule-new-step-add-condition" [hidden]="integrationConditionDisplayed" (click)="integrationConditionDisplayed=true">Add condition</div>

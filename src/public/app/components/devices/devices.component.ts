@@ -6,11 +6,11 @@ import { BrowserNotificationService } from "../../services/browser-notification.
 declare var require: any
 
 @Component({
-  selector: 'notifications',
-  template: require('./notifications.component.html'),
-  styles: [require('./notifications.component.less')]
+  selector: 'devices',
+  template: require('./devices.component.html'),
+  styles: [require('./devices.component.less')]
 })
-export class NotificationsComponent implements OnInit  {
+export class DevicesComponent implements OnInit  {
 
     private notifications: NotificationsService;
     private browserNotification: BrowserNotificationService;

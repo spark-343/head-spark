@@ -9,7 +9,7 @@ import * as dotenv from "dotenv";
 import * as socketIo from "socket.io";
 /*import * as mongoose from "mongoose";
 import { RoomSocket } from "./room-socket"; */
-import {ServicesManager} from "./services.manager";
+import {IntegrationsManager} from "./integrations.manager";
 import {NotificationsManager} from "./notifications.manager";
 
 
@@ -28,7 +28,7 @@ class Server {
     private root: string;
     private port: number;
 
-    private servicesManager: any;
+    private integrationsManager: any;
     private notificationsManager: any;
 
     /**
@@ -51,7 +51,7 @@ class Server {
     */
     constructor() {
         // instanciate servicesManager
-        this.servicesManager = new ServicesManager();
+        this.integrationsManager = new IntegrationsManager();
         //console.log(this.servicesManager);
         this.notificationsManager = new NotificationsManager();
 
@@ -160,9 +160,9 @@ class Server {
 
             socket.on('get-services', function () {
                 console.log('get-services');
-                var services = thiis.servicesManager.currentServices();
+                var integrations = thiis.integrationsManager.currentServices();
                 // console.log(services);
-                socket.emit('services', services);
+                socket.emit('services', integrations);
             });
             socket.on('get-notifications', function () {
                 console.log('get-notifications');

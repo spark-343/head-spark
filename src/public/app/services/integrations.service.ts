@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 
 import { SocketService } from "./socket.service";
-import { IService } from "../models/service.model";
+import { IIntegration } from "../models/integration.model";
 
 
 @Injectable()
-export class ServicesService {
-    private services: Array<IService>;
+export class IntegrationsService {
+    private integrations: Array<IIntegration>;
 
     /**
      * Constructor.
@@ -17,9 +17,9 @@ export class ServicesService {
     constructor(socketService:SocketService) {
         console.log('constructor socketService');
         let thiis = this;
-        socketService.socket.on('services', function (services) {
+        socketService.socket.on('services', function (integrations) {
             console.log('on.services');
-            thiis.services = services;
+            thiis.integrations = integrations;
         });
 
         socketService.socket.on('connect', function () {
@@ -28,7 +28,7 @@ export class ServicesService {
         });
     }
 
-    public list() : Array<IService> {
-        return this.services;
+    public list() : Array<IIntegration> {
+        return this.integrations;
     }
 }
