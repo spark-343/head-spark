@@ -20,7 +20,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
 
 import { SocketService } from "./services/socket.service";
 import { IntegrationsService } from "./services/integrations.service";
-import { NotificationsService } from "./services/notifications.service";
+import { DevicesService } from "./services/devices.service";
 import { BrowserNotificationService } from "./services/browser-notification.service";
 
 
@@ -36,6 +36,6 @@ import { BrowserNotificationService } from "./services/browser-notification.serv
       SignComponent
   ],
   bootstrap:    [ AppComponent ],
-  providers:    [ SocketService, IntegrationsService, NotificationsService, BrowserNotificationService ]
+  providers:    [ SocketService, IntegrationsService, DevicesService, BrowserNotificationService ]
 })
 export class AppModule { }

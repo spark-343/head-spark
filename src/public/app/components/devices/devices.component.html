@@ -1,19 +1,19 @@
 <div class="titem-list">
 
-    <div class="titem" *ngFor='let notification of notifications.list()'>
+    <div class="titem" *ngFor='let device of devices.list()'>
         <div class="ui segment" (click)="browserNotification.showNotification('Hello world')">
             <!-- <div class="service-action">
                 <button class="ui button primary">Add</button>
             </div> -->
 
             <div class="titem-logo">
-                <i class="ui icon {{notification.icon}} big"></i>
+                <i class="ui icon {{device.icon}} big"></i>
             </div>
 
             <div class="titem-content">
-                <div class="titem-title">{{notification.name}}</div>
+                <div class="titem-title">{{device.name}}</div>
                 <div class="titem-description">
-                    {{notification.description}}
+                    {{device.description}}
                 </div>
             </div>
         </div>

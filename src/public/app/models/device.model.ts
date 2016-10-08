@@ -1,7 +1,7 @@
 // import * as mongoose from "mongoose";
 
 
-export interface INotification {
+export interface IDevice {
     icon: string;
     id: string;
     name: string;

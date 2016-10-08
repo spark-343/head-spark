@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NotificationsService } from "../../services/notifications.service";
+import { DevicesService } from "../../services/devices.service";
 import { BrowserNotificationService } from "../../services/browser-notification.service";
 
 declare var require: any
@@ -12,11 +12,11 @@ declare var require: any
 })
 export class DevicesComponent implements OnInit  {
 
-    private notifications: NotificationsService;
+    private devices: DevicesService;
     private browserNotification: BrowserNotificationService;
 
-    constructor(private notificationsService: NotificationsService, private browserNotificationService:BrowserNotificationService ) {
-        this.notifications = notificationsService;
+    constructor(private devicesService: DevicesService, private browserNotificationService:BrowserNotificationService ) {
+        this.devices = devicesService;
         this.browserNotification = browserNotificationService;
     }
 

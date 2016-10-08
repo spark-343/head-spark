@@ -33,7 +33,7 @@
             <div class="field">
                 <select class="ui dropdown search" dropdown required [(ngModel)]="integration" name="integration">
                   <option value="">Integration</option>
-                  <option class="item" *ngFor='let integration of integrations.list()' [ngValue]="service">{{integration.notification}}</option>
+                  <option class="item" *ngFor='let device of devices.list()' [ngValue]="service">{{device.notification}}</option>
                 </select>
             </div>
             <div class="rule-new-step-add-condition" [hidden]="integrationConditionDisplayed" (click)="integrationConditionDisplayed=true">Add condition</div>

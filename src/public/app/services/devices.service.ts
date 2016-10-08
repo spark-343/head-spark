@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 
 import { SocketService } from "./socket.service";
-import { INotification } from "../models/notification.model";
+import { IDevice } from "../models/device.model";
 
 
 @Injectable()
-export class NotificationsService {
-    private notifications: Array<INotification>;
+export class DevicesService {
+    private devices: Array<IDevice>;
 
     /**
      * Constructor.
@@ -17,8 +17,8 @@ export class NotificationsService {
     constructor(socketService:SocketService) {
         console.log('constructor socketService');
         let thiis = this;
-        socketService.socket.on('notifications', function (notifications) {
-            thiis.notifications = notifications;
+        socketService.socket.on('notifications', function (devices) {
+            thiis.devices = devices;
         });
 
         socketService.socket.on('connect', function () {
@@ -27,7 +27,7 @@ export class NotificationsService {
         });
     }
 
-    public list() : Array<INotification> {
-        return this.notifications;
+    public list() : Array<IDevice> {
+        return this.devices;
     }
 }

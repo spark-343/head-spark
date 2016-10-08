@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { IntegrationsService } from "../../services/integrations.service";
-import { NotificationsService } from "../../services/notifications.service";
+import { DevicesService } from "../../services/devices.service";
 
 
 declare var require: any
@@ -26,7 +26,7 @@ export class RulesComponent {
     ruleNameInputFocused: Boolean;
 
     private integrations: IntegrationsService;
-    private notifications: NotificationsService;
+    private devices: DevicesService;
 
     integrationCondition: String;
     integrationConditionDisplayed: Boolean;
@@ -35,9 +35,9 @@ export class RulesComponent {
     deviceConditionDisplayed: Boolean;
 
 
-    constructor(private integrationsService: IntegrationsService, private notificationsService: NotificationsService) {
+    constructor(private integrationsService: IntegrationsService, private devicesService: DevicesService) {
         this.integrations = integrationsService;
-        this.notifications = notificationsService;
+        this.devices = devicesService;
         this.formDisplayed = false;
         this.ruleName = '';
         this.integration = null;
