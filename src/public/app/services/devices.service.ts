@@ -17,13 +17,13 @@ export class DevicesService {
     constructor(socketService:SocketService) {
         console.log('constructor socketService');
         let thiis = this;
-        socketService.socket.on('notifications', function (devices) {
+        socketService.socket.on('devices', function (devices) {
             thiis.devices = devices;
         });
 
         socketService.socket.on('connect', function () {
-            console.log('connected services');
-            socketService.socket.emit('get-notifications');
+            console.log('connected devices');
+            socketService.socket.emit('get-devices');
         });
     }
 

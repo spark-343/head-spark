@@ -1,11 +1,42 @@
 .sign {
-    max-width: 400px;
-    margin: auto;
 
-    &-submit {
-        &.ui.button {
-            display: block!important;
-            width: 100%!important;
-        }
+    @blue: #2185D0;
+
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: white;
+    background: @blue;
+
+    &-title {
+        font-size: 1.4em!important;
     }
+
+    &-grid {
+        height: 100%;
+    }
+
+    &-column {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    &-feedback {
+        color: @blue;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    // max-width: 400px;
+    // margin: auto;
+    //
+    // &-submit {
+    //     &.ui.button {
+    //         display: block!important;
+    //         width: 100%!important;
+    //     }
+    // }
 }

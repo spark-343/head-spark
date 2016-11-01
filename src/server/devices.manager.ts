@@ -9,15 +9,15 @@ declare var process, __dirname;
  *
  * @class Server
  */
-export class NotificationsManager {
+export class DevicesManager {
 
     public constructor() {
     }
 
-    public currentNotifications(): Array<IIntegration> {
-        var notifications = [];
+    public currentDevices(): Array<IIntegration> {
+        var devices = [];
 
-        notifications.push({
+        devices.push({
             id: 'browser',
             icon: 'browser',
             name: 'Browser',
@@ -25,7 +25,7 @@ export class NotificationsManager {
             description: 'Get a notification in the browser (for debug only)'
         })
 
-        return notifications;
+        return devices;
     }
 
 }

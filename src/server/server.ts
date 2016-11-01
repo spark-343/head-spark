@@ -10,8 +10,8 @@ import * as socketIo from "socket.io";
 /*import * as mongoose from "mongoose";
 import { RoomSocket } from "./room-socket"; */
 import {IntegrationsManager} from "./integrations.manager";
-import {NotificationsManager} from "./notifications.manager";
-
+import {DevicesManager} from "./devices.manager";
+import {Mailer} from "./mailer";
 
 declare var process, __dirname;
 
@@ -28,8 +28,9 @@ class Server {
     private root: string;
     private port: number;
 
-    private integrationsManager: any;
-    private notificationsManager: any;
+    private integrationsManager: IntegrationsManager;
+    private devicesManager: DevicesManager;
+    private mailer: Mailer;
 
     /**
     * Bootstrap the application.
@@ -53,7 +54,9 @@ class Server {
         // instanciate servicesManager
         this.integrationsManager = new IntegrationsManager();
         //console.log(this.servicesManager);
-        this.notificationsManager = new NotificationsManager();
+        this.devicesManager = new DevicesManager();
+
+        this.mailer = new Mailer();
 
         // Create expressjs application
         this.app = express();
@@ -110,7 +113,13 @@ class Server {
         let router: express.Router;
         router = express.Router();
 
+        let thiis = this;
+
         // Static assets
+        this.app.get('/mail', function (req, res, next) {
+            thiis.mailer.send('thibfrie@gmail.com', 'Magic link to sign-in', 'test', '<b>test</b>');
+            res.send('ok');
+        });
         this.app.use(express.static(this.root));
         this.app.use(express.static(path.join(this.root, 'app')));
 
@@ -158,17 +167,29 @@ class Server {
         this.io.on('connection', function (socket) {
             // console.log('connections');
 
-            socket.on('get-services', function () {
-                console.log('get-services');
+            socket.on('get-integrations', function () {
+                console.log('get-integrations');
                 var integrations = thiis.integrationsManager.currentServices();
                 // console.log(services);
-                socket.emit('services', integrations);
+                socket.emit('integrations', integrations);
             });
-            socket.on('get-notifications', function () {
-                console.log('get-notifications');
-                var notifications = thiis.notificationsManager.currentNotifications();
+            socket.on('get-devices', function () {
+                console.log('get-devices');
+                var devices = thiis.devicesManager.currentDevices();
                 // console.log(services);
-                socket.emit('notifications', notifications);
+                socket.emit('devices', devices);
+            });
+
+            socket.on('user-send-magic-link', function (args) {
+                console.log('user-send-magic-link', args.emailAddress, args.host);
+                thiis.mailer.send(args.emailAddress, 'Magic link to sign-in', 'test', '<b>test</b>', (err) => {
+                    console.log('callback', err);
+                    if (err) {
+                        socket.emit('user-magic-link-error', { error:err });
+                    } else {
+                        socket.emit('user-magic-link-sent', { emailAddress:args.emailAddress });
+                    }
+                });
             });
         });
         // let roomSocket = new RoomSocket(this.io);

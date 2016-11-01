@@ -1,11 +1,40 @@
 <div class="sign">
-    <div class="ui segment">
+    <div class="ui middle aligned center aligned grid blue sign-grid">
+        <div class="column sign-column">
+            <div class="ui stacked segment" [hidden]="step != 'sign'">
+                <h2 class="ui blue header sign-title">Enter your email address to sign in or create an account on Home-spark</h2>
+                <form class="ui large form">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="ui icon zmdi zmdi-email"></i>
+                            <input type="email" name="email" placeholder="Email address" [(ngModel)]="emailAddress">
+                        </div>
+                    </div>
+                    <button class="ui fluid large blue submit button" (click)="send()" [disabled]="emailAddress.length == 0">
+                        Send me a magic link to sign-in
+                    </button>
+                </form>
+            </div>
+            <div class="ui segment" [hidden]="step != 'error'">
+                <p class="sign-feedback">
+                    {{error}}
+                </p>
+            </div>
+            <div class="ui segment" [hidden]="step != 'sent'">
+                <p class="sign-feedback">
+                    We sent you a magic link to sign in. Please check your inbox.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="ui segment">
         <form class="ui form large">
         <div class="field">
-            <!-- <label>Email address</label> -->
           <input type="email" name="first-name" placeholder="Email address">
         </div>
         <button class="ui sign-submit button large primary" type="submit">Send me a link with slack</button>
       </form>
-    </div>
+    </div> -->
 </div>

@@ -17,14 +17,14 @@ export class IntegrationsService {
     constructor(socketService:SocketService) {
         console.log('constructor socketService');
         let thiis = this;
-        socketService.socket.on('services', function (integrations) {
+        socketService.socket.on('integrations', function (integrations) {
             console.log('on.services');
             thiis.integrations = integrations;
         });
 
         socketService.socket.on('connect', function () {
-            console.log('connected services');
-            socketService.socket.emit('get-services');
+            console.log('connected integrations');
+            socketService.socket.emit('get-integrations');
         });
     }
 

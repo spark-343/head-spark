@@ -22,6 +22,7 @@ import { SocketService } from "./services/socket.service";
 import { IntegrationsService } from "./services/integrations.service";
 import { DevicesService } from "./services/devices.service";
 import { BrowserNotificationService } from "./services/browser-notification.service";
+import { UserService } from "./services/user.service";
 
 
 
@@ -36,6 +37,6 @@ import { BrowserNotificationService } from "./services/browser-notification.serv
       SignComponent
   ],
   bootstrap:    [ AppComponent ],
-  providers:    [ SocketService, IntegrationsService, DevicesService, BrowserNotificationService ]
+  providers:    [ SocketService, IntegrationsService, DevicesService, BrowserNotificationService, UserService ]
 })
 export class AppModule { }

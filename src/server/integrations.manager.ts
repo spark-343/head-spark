@@ -12,12 +12,13 @@ declare var process, __dirname;
 export class IntegrationsManager {
 
     public constructor() {
+        dotenv.config();
     }
 
     public currentServices(): Array<IIntegration> {
         var integrations = [];
         if (process.env.SLACK_API_TOKEN) {
-            console.log('in slack', process, process.env.SLACK_API_TOKEN);
+            // console.log('in slack', process.env.SLACK_API_TOKEN);
             integrations.push({
                 id: 'slack',
                 icon: 'slack',
